@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+group = 'com.mcs'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(26)
+    }
+}
+
+application {
+    mainClass = 'com.mcs.hotel.Launcher'
+}
+
+javafx {
+    version = '26'
+    modules = ['javafx.controls']
+}
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}

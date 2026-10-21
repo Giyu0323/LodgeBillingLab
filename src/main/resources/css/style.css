@@ -1,0 +1,772 @@
+/* =========================================================
+   MCS Hotel theme: dark navy + orange
+   Change a colour here and it changes everywhere.
+   ========================================================= */
+
+/* ---- Base colours. Most controls derive their look from these ---- */
+.root {
+    -fx-base: #13233f;
+    -fx-background: #0b1526;
+    -fx-control-inner-background: #0f1d36;
+    -fx-accent: #f59e0b;
+    -fx-focus-color: #f59e0b;
+    -fx-faint-focus-color: transparent;
+    -fx-background-color: #0b1526;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+.button { -fx-cursor: hand; }
+
+/* ---- Headings and text ---- */
+.page-title    { -fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: white; }
+.page-subtitle { -fx-text-fill: #9fb0cc; }
+.card-title    { -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white; }
+
+.brand-title   { -fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white; }
+.brand-tagline { -fx-font-size: 10px; -fx-text-fill: #f59e0b; }
+
+.message-error   { -fx-text-fill: #f87171; }
+.message-success { -fx-text-fill: #4ade80; }
+
+/* ---- Cards ---- */
+.card {
+    -fx-background-color: #101e36;
+    -fx-background-radius: 12;
+    -fx-border-color: #1f3358;
+    -fx-border-radius: 12;
+    -fx-padding: 16;
+}
+.stat-card  { -fx-background-color: linear-gradient(to bottom right, #14284d, #0f1d36); }
+.stat-title { -fx-text-fill: #9fb0cc; }
+.stat-value { -fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white; }
+.stat-note  { -fx-font-size: 11px; -fx-text-fill: #7f93b5; }
+
+/* ---- Buttons ---- */
+.primary-button {
+    -fx-background-color: linear-gradient(to right, #f59e0b, #f97316);
+    -fx-background-insets: 0;
+    -fx-background-radius: 10;
+    -fx-text-fill: #0b1526;
+    -fx-font-weight: bold;
+    -fx-padding: 10 18;
+}
+.primary-button:hover {
+    -fx-background-color: linear-gradient(to right, #fbbf24, #fb923c);
+}
+.primary-button:disabled { -fx-opacity: 0.5; }
+
+.secondary-button {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 10;
+    -fx-border-color: #2f4a7d;
+    -fx-border-radius: 10;
+    -fx-text-fill: white;
+    -fx-padding: 9 16;
+}
+.secondary-button:hover { -fx-background-color: #16294b; }
+
+/* Small buttons inside tables (View, Delete, Edit, Remove) */
+.table-cell .button {
+    -fx-background-color: #1d3157;
+    -fx-background-insets: 0;
+    -fx-background-radius: 6;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 3 10;
+}
+.table-cell .button:hover { -fx-background-color: #284278; }
+
+.danger-button, .table-cell .danger-button {
+    -fx-background-color: #dc2626;
+    -fx-text-fill: white;
+}
+.danger-button:hover, .table-cell .danger-button:hover {
+    -fx-background-color: #ef4444;
+}
+
+/* ---- Inputs ---- */
+.text-field, .password-field {
+    -fx-background-color: #0f1d36;
+    -fx-background-insets: 0;
+    -fx-background-radius: 8;
+    -fx-border-color: #27406b;
+    -fx-border-radius: 8;
+    -fx-padding: 8 10;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #6f84a8;
+}
+.text-field:focused, .password-field:focused { -fx-border-color: #f59e0b; }
+
+/* Password box: extra room on the right for the show/hide eye (must come after .text-field) */
+.password-input { -fx-padding: 8 44 8 10; }
+
+/* The eye is a plain icon: no button background, no focus ring */
+.eye-button,
+.eye-button:hover,
+.eye-button:selected,
+.eye-button:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-padding: 6 12;
+    -fx-cursor: hand;
+}
+.eye-button:hover { -fx-opacity: 0.75; }
+
+.combo-box-base {
+    -fx-background-color: #0f1d36;
+    -fx-background-insets: 0;
+    -fx-background-radius: 8;
+    -fx-border-color: #27406b;
+    -fx-border-radius: 8;
+}
+.combo-box-base:focused { -fx-border-color: #f59e0b; }
+.combo-box-base .arrow-button { -fx-background-color: transparent; }
+.combo-box-base .arrow { -fx-background-color: #9fb0cc; }
+.combo-box-popup .list-view { -fx-background-color: #0f1d36; -fx-border-color: #27406b; }
+.combo-box-popup .list-cell:filled:hover,
+.combo-box-popup .list-cell:filled:selected {
+    -fx-background-color: #f59e0b;
+    -fx-text-fill: #0b1526;
+}
+
+/* Spinner: the text box is rounded on the left, the arrow buttons on the right */
+.spinner .text-field {
+    -fx-background-radius: 8 0 0 8;
+    -fx-border-radius: 8 0 0 8;
+}
+.spinner .increment-arrow-button {
+    -fx-background-color: #1a2d50;
+    -fx-background-radius: 0 8 0 0;
+}
+.spinner .decrement-arrow-button {
+    -fx-background-color: #1a2d50;
+    -fx-background-radius: 0 0 8 0;
+}
+
+.check-box .box {
+    -fx-background-color: #0f1d36;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4;
+    -fx-border-color: #3a5588;
+    -fx-border-radius: 4;
+}
+.check-box:selected .box { -fx-background-color: #f59e0b; -fx-border-color: #f59e0b; }
+.check-box:selected .mark { -fx-background-color: #0b1526; }
+
+/* ---- Scroll panes: see-through, so the navy background shows ---- */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+.scroll-pane > .viewport { -fx-background-color: transparent; }
+.scroll-pane > .corner   { -fx-background-color: transparent; }
+
+/* ---- Tables ---- */
+.table-view {
+    -fx-background-color: #0f1d36;
+    -fx-background-radius: 10;
+    -fx-border-color: #1f3358;
+    -fx-border-radius: 10;
+    -fx-padding: 0;
+    -fx-table-cell-border-color: transparent;
+}
+.table-view .column-header-background {
+    -fx-background-color: #0d1a30;
+    -fx-background-radius: 10 10 0 0;
+}
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #22345a transparent;
+}
+.table-view .column-header .label {
+    -fx-text-fill: #9fb0cc;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+}
+.table-view .placeholder .label { -fx-text-fill: #7f93b5; }
+
+.table-row-cell, .table-row-cell:odd {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #1b2b4a transparent;
+}
+.table-row-cell:hover    { -fx-background-color: #16294b; }
+.table-row-cell:selected { -fx-background-color: #1d3157; }
+.table-row-cell:empty    { -fx-background-color: transparent; -fx-border-color: transparent; }
+.table-row-cell .table-cell { -fx-text-fill: white; -fx-alignment: center-left; }
+
+/* ---- Sidebar ---- */
+.sidebar {
+    -fx-background-color: #08111f;
+    -fx-border-color: transparent #1b2b4a transparent transparent;
+}
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 10;
+    -fx-text-fill: #cbd5e8;
+    -fx-font-size: 14px;
+    -fx-padding: 11 14;
+    -fx-graphic-text-gap: 12; /* space between the icon and the label (used in Step 17) */
+}
+.nav-button:hover { -fx-background-color: #14243f; -fx-text-fill: white; }
+.nav-button.active {
+    -fx-background-color: linear-gradient(to right, #f59e0b, #f97316);
+    -fx-text-fill: #0b1526;
+    -fx-font-weight: bold;
+}
+
+/* ---- Top bar ---- */
+.top-bar {
+    -fx-background-color: #0b1526;
+    -fx-border-color: transparent transparent #1b2b4a transparent;
+}
+.user-name { -fx-font-weight: bold; -fx-text-fill: white; }
+.user-role { -fx-font-size: 11px; -fx-text-fill: #9fb0cc; }
+
+/* ---- Login screen ---- */
+
+/* Hotel photo fills the left half, whatever the window size */
+.login-photo {
+    -fx-background-image: url("../images/login-hotel.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+}
+
+/* Dark gradient over the photo so the white text stays readable */
+.login-shade {
+    -fx-background-color: linear-gradient(to bottom,
+    rgba(11, 21, 38, 0.35), rgba(11, 21, 38, 0.88));
+}
+
+/* Logo and text sit on top of the photo, so this box has no background of its own */
+.login-brand { -fx-background-color: transparent; }
+.login-brand .brand-title {
+    -fx-font-size: 44px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 12, 0.3, 0, 2);
+}
+.login-brand .brand-tagline { -fx-font-size: 13px; }
+.brand-slogan { -fx-font-size: 15px; -fx-text-fill: white; }
+
+.login-card {
+    -fx-background-color: #101e36;
+    -fx-background-radius: 14;
+    -fx-border-color: #1f3358;
+    -fx-border-radius: 14;
+}
+.form-title    { -fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white; }
+.form-subtitle { -fx-text-fill: #9fb0cc; }
+.error-label {
+    -fx-text-fill: #fca5a5;
+    -fx-background-color: rgba(220, 38, 38, 0.15);
+    -fx-background-radius: 8;
+    -fx-border-color: #dc2626;
+    -fx-border-radius: 8;
+    -fx-padding: 8 10;
+}
+
+/* ---- Receipt: a white "paper" card, so it prints cleanly ---- */
+.receipt-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 24;
+}
+.receipt-card .label          { -fx-text-fill: #1f2937; }
+.receipt-card .brand-title    { -fx-text-fill: #d97706; -fx-font-size: 26px; }
+.receipt-card .brand-tagline  { -fx-text-fill: #6b7280; }
+.receipt-card .separator .line { -fx-border-color: #d1d5db; }
+.receipt-head { -fx-font-weight: bold; }
+
+/* ---- Pop-up dialogs (kept last so they win over .root) ---- */
+.dialog-pane { -fx-background-color: #101e36; }
+.dialog-pane .label { -fx-text-fill: white; }
+
+/* =========================================================
+   Step 18A: icons inside text boxes, login feature icons.
+   Kept at the bottom so these rules override earlier ones.
+   ========================================================= */
+
+/* Text boxes with an icon on the left: push the typed text clear of the icon */
+.icon-input { -fx-padding: 8 10 8 40; }
+
+/* Password box has an icon on BOTH sides: lock on the left, eye on the right */
+.icon-input.password-input { -fx-padding: 8 44 8 40; }
+
+/* Warning triangle before the login error message */
+.error-label { -fx-graphic-text-gap: 8; }
+
+/* The three highlights at the bottom of the login photo */
+.feature-circle {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-background-radius: 30;
+    -fx-border-color: rgba(245, 158, 11, 0.7);
+    -fx-border-radius: 30;
+    -fx-min-width: 60;
+    -fx-min-height: 60;
+    -fx-max-width: 60;
+    -fx-max-height: 60;
+}
+.feature-label { -fx-text-fill: white; -fx-font-size: 12px; }
+
+/* =========================================================
+   Step 18B: icons on table buttons, role and charge badges.
+   ========================================================= */
+
+/* Space between a table button's icon and its label */
+.table-cell .button { -fx-graphic-text-gap: 6; }
+
+/* Small rounded pills used in tables */
+.badge {
+    -fx-padding: 3 12;
+    -fx-background-radius: 12;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+.badge-admin {
+    -fx-text-fill: #f59e0b;
+    -fx-background-color: rgba(245, 158, 11, 0.12);
+    -fx-border-color: #f59e0b;
+    -fx-border-radius: 12;
+}
+.badge-staff   { -fx-text-fill: white; -fx-background-color: #2563eb; }
+.badge-per-day  { -fx-text-fill: white; -fx-background-color: #1d4ed8; }
+.badge-onetime { -fx-text-fill: white; -fx-background-color: #7c3aed; }
+
+/* =========================================================
+   Step 18C: space between an icon and the label on main buttons.
+   ========================================================= */
+.primary-button, .secondary-button { -fx-graphic-text-gap: 8; }
+/* =========================================================
+   Step 19: login screen laid out like the design board.
+   ========================================================= */
+
+/* The big two-line slogan at the bottom left of the photo */
+.login-slogan {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0.3, 0, 2);
+}
+
+/* Captions under the three feature circles */
+.feature-label {
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-text-alignment: center;
+}
+
+/* Taller, roomier boxes on the login card only (other screens keep their size) */
+.icon-input.login-input { -fx-padding: 13 10 13 44; }
+.icon-input.password-input.login-input { -fx-padding: 13 44 13 44; }
+
+/* The Sign In button: white text, slightly taller, as in the design */
+.signin-button {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 13 18;
+}
+
+/* A little more space between the card's labels and boxes */
+.login-card { -fx-background-color: rgba(14, 28, 54, 0.92); }
+
+/* =========================================================
+   Step 20: dashboard laid out like the design board.
+   ========================================================= */
+
+/* Logo block inside the top bar is a little smaller than the old sidebar one */
+.top-bar .brand-title   { -fx-font-size: 18px; }
+.top-bar .brand-tagline { -fx-font-size: 8px; }
+
+/* Stat cards: the same dark base, each with its own colour tint */
+.stat-blue   { -fx-background-color: linear-gradient(to bottom right, #15386b, #0f1d36); }
+.stat-green  { -fx-background-color: linear-gradient(to bottom right, #14433f, #0f1d36); }
+.stat-orange { -fx-background-color: linear-gradient(to bottom right, #4a3216, #0f1d36); }
+.stat-purple { -fx-background-color: linear-gradient(to bottom right, #31235f, #0f1d36); }
+
+/* Room Prices rows: name on the left, price with "per night" on the right */
+.price-row    { -fx-padding: 10 0; -fx-border-color: transparent transparent #1b2b4a transparent; }
+.price-amount { -fx-font-weight: bold; -fx-text-fill: white; }
+.price-unit   { -fx-font-size: 10px; -fx-text-fill: #7f93b5; }
+
+/* The View button in tables is orange, as in the design */
+.table-cell .view-button {
+    -fx-background-color: linear-gradient(to right, #f59e0b, #f97316);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.table-cell .view-button:hover {
+    -fx-background-color: linear-gradient(to right, #fbbf24, #fb923c);
+}
+/* =========================================================
+   Step 19: login screen laid out like the design board.
+   ========================================================= */
+
+/* The big two-line slogan at the bottom left of the photo */
+.login-slogan {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0.3, 0, 2);
+}
+
+/* Captions under the three feature circles */
+.feature-label {
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-text-alignment: center;
+}
+
+/* Taller, roomier boxes on the login card only (other screens keep their size) */
+.icon-input.login-input { -fx-padding: 13 10 13 44; }
+.icon-input.password-input.login-input { -fx-padding: 13 44 13 44; }
+
+/* The Sign In button: white text, slightly taller, as in the design */
+.signin-button {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 13 18;
+}
+
+/* A little more space between the card's labels and boxes */
+.login-card { -fx-background-color: rgba(14, 28, 54, 0.92); }
+
+/* =========================================================
+   Step 20: dashboard laid out like the design board.
+   ========================================================= */
+
+/* Logo block inside the top bar is a little smaller than the old sidebar one */
+.top-bar .brand-title   { -fx-font-size: 18px; }
+.top-bar .brand-tagline { -fx-font-size: 8px; }
+
+/* Stat cards: the same dark base, each with its own colour tint */
+.stat-blue   { -fx-background-color: linear-gradient(to bottom right, #15386b, #0f1d36); }
+.stat-green  { -fx-background-color: linear-gradient(to bottom right, #14433f, #0f1d36); }
+.stat-orange { -fx-background-color: linear-gradient(to bottom right, #4a3216, #0f1d36); }
+.stat-purple { -fx-background-color: linear-gradient(to bottom right, #31235f, #0f1d36); }
+
+/* Room Prices rows: name on the left, price with "per night" on the right */
+.price-row    { -fx-padding: 10 0; -fx-border-color: transparent transparent #1b2b4a transparent; }
+.price-amount { -fx-font-weight: bold; -fx-text-fill: white; }
+.price-unit   { -fx-font-size: 10px; -fx-text-fill: #7f93b5; }
+
+/* The View button in tables is orange, as in the design */
+.table-cell .view-button {
+    -fx-background-color: linear-gradient(to right, #f59e0b, #f97316);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.table-cell .view-button:hover {
+    -fx-background-color: linear-gradient(to right, #fbbf24, #fb923c);
+}
+
+/* =========================================================
+   Step 21: New Bill and Users screens like the design board.
+   ========================================================= */
+
+/* Room type box: leave room for the bed icon on the left */
+.combo-icon .list-cell { -fx-padding: 8 8 8 38; }
+
+/* Nights box: leave room for the calendar icon on the left */
+.spinner.icon-spinner .text-field { -fx-padding: 8 10 8 40; }
+
+/* Column titles above the extras checklist */
+.extras-head { -fx-font-size: 11px; -fx-text-fill: #9fb0cc; }
+
+/* Bill Summary: orange divider, bold Total and Balance */
+.orange-line {
+    -fx-background-color: #f59e0b;
+    -fx-min-height: 1;
+    -fx-pref-height: 1;
+    -fx-max-height: 1;
+}
+.summary-strong { -fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: white; }
+
+/* Big orange buttons: Save Bill and Add User */
+.save-big { -fx-font-size: 15px; -fx-padding: 16 18; }
+
+/* =========================================================
+   Step 22: dark receipt on screen (white only while printing).
+   ========================================================= */
+
+/* On screen: a dark card, like the rest of the app */
+.receipt-card {
+    -fx-background-color: #101e36;
+    -fx-background-radius: 12;
+    -fx-border-color: #1f3358;
+    -fx-border-radius: 12;
+    -fx-padding: 24;
+}
+.receipt-card .label          { -fx-text-fill: white; }
+.receipt-card .receipt-label  { -fx-text-fill: #9fb0cc; }
+.receipt-card .brand-title    { -fx-text-fill: white; -fx-font-size: 26px; }
+.receipt-card .brand-tagline  { -fx-text-fill: #f59e0b; }
+.receipt-card .separator .line { -fx-border-color: #27406b; }
+
+/* While printing: the code adds "receipt-print", which turns the card into white paper */
+.receipt-card.receipt-print {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+}
+.receipt-card.receipt-print .label           { -fx-text-fill: #1f2937; }
+.receipt-card.receipt-print .receipt-label   { -fx-text-fill: #6b7280; }
+.receipt-card.receipt-print .brand-title     { -fx-text-fill: #d97706; }
+.receipt-card.receipt-print .brand-tagline   { -fx-text-fill: #6b7280; }
+.receipt-card.receipt-print .separator .line { -fx-border-color: #d1d5db; }
+
+/* =========================================================
+   Step 23: payment window method tiles.
+   ========================================================= */
+.method-tile {
+    -fx-background-color: #0f1d36;
+    -fx-background-insets: 0;
+    -fx-background-radius: 10;
+    -fx-border-color: #27406b;
+    -fx-border-radius: 10;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 12;
+    -fx-alignment: center-left;
+    -fx-graphic-text-gap: 12;
+}
+.method-tile:hover { -fx-border-color: #3a5588; }
+.method-tile:selected {
+    -fx-background-color: rgba(245, 158, 11, 0.14);
+    -fx-border-color: #f59e0b;
+    -fx-border-width: 2;
+}
+
+/* =========================================================
+   Step 25: waiting for the guest to confirm on their phone.
+   ========================================================= */
+
+/* "Demo only" box: dashed, so it looks like a temporary tool */
+.demo-box {
+    -fx-border-color: #3a5588;
+    -fx-border-style: dashed;
+    -fx-border-radius: 10;
+    -fx-padding: 12;
+}
+.demo-title { -fx-text-fill: #9fb0cc; -fx-font-size: 11px; }
+
+/* The "Expires in 42 seconds" line */
+.countdown { -fx-text-fill: #f59e0b; -fx-font-weight: bold; }
+
+/* =========================================================
+   Step 24: Payment Methods tab.
+   ========================================================= */
+
+/* One method card */
+.method-card {
+    -fx-background-color: #0d1a30;
+    -fx-background-radius: 12;
+    -fx-border-color: #1f3358;
+    -fx-border-radius: 12;
+    -fx-padding: 18;
+}
+.method-off { -fx-opacity: 0.55; }  /* a disabled method looks greyed out */
+.method-name { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white; }
+.method-desc { -fx-text-fill: #9fb0cc; }
+
+/* Active / Disabled pill */
+.status-badge  { -fx-padding: 3 12; -fx-background-radius: 14; -fx-font-weight: bold; -fx-text-fill: white; }
+.status-active { -fx-background-color: #16a34a; }
+.status-off    { -fx-background-color: #6b7280; }
+
+/* Thin separator lines */
+.card-divider {
+    -fx-background-color: #1f3358;
+    -fx-min-height: 1;
+    -fx-pref-height: 1;
+    -fx-max-height: 1;
+}
+
+/* The clickable "Manage" row */
+.manage-row { -fx-cursor: hand; -fx-padding: 6 4; }
+.manage-row:hover { -fx-background-color: rgba(255, 255, 255, 0.06); -fx-background-radius: 8; }
+.manage-row .label { -fx-text-fill: #cbd5e8; }
+
+/* =========================================================
+   Step 26: check-in / check-out and Guest Payments.
+   ========================================================= */
+
+/* Coloured bar on the left of the two count cards */
+.accent-green { -fx-border-color: #16a34a; -fx-border-width: 0 0 0 4; }
+.accent-blue  { -fx-border-color: #2563eb; -fx-border-width: 0 0 0 4; }
+.note-green   { -fx-text-fill: #22c55e; }
+.note-blue    { -fx-text-fill: #60a5fa; }
+
+/* "Balance Due" badge (the green "Paid" badge reuses .status-active) */
+.status-due { -fx-background-color: #f59e0b; -fx-text-fill: #0b1526; }
+
+/* Outlined "View Details" button in tables */
+.table-cell .outline-button {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 6;
+    -fx-border-color: #3a5588;
+    -fx-border-radius: 6;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 3 10;
+}
+.table-cell .outline-button:hover { -fx-background-color: #16294b; }
+
+/* Totals line under the Guest Payments table */
+.footer-item { -fx-text-fill: #cbd5e8; }
+
+/* Date pickers: the arrow button blends in with the box */
+.date-picker .arrow-button { -fx-background-color: transparent; }
+.date-picker .arrow-button .arrow { -fx-background-color: #9fb0cc; }
+
+/* =========================================================
+   Step 26: check-in / check-out and Guest Payments.
+   ========================================================= */
+
+/* Coloured bar on the left of the two count cards */
+.accent-green { -fx-border-color: #16a34a; -fx-border-width: 0 0 0 4; }
+.accent-blue  { -fx-border-color: #2563eb; -fx-border-width: 0 0 0 4; }
+.note-green   { -fx-text-fill: #22c55e; }
+.note-blue    { -fx-text-fill: #60a5fa; }
+
+/* "Balance Due" badge (the green "Paid" badge reuses .status-active) */
+.status-due { -fx-background-color: #f59e0b; -fx-text-fill: #0b1526; }
+
+/* Outlined "View Details" button in tables */
+.table-cell .outline-button {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 6;
+    -fx-border-color: #3a5588;
+    -fx-border-radius: 6;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 3 10;
+}
+.table-cell .outline-button:hover { -fx-background-color: #16294b; }
+
+/* Totals line under the Guest Payments table */
+.footer-item { -fx-text-fill: #cbd5e8; }
+
+/* Date pickers: the arrow button blends in with the box */
+.date-picker .arrow-button { -fx-background-color: transparent; }
+.date-picker .arrow-button .arrow { -fx-background-color: #9fb0cc; }
+
+/* =========================================================
+   Step 3 (Analytics): cards, KPIs, change colours.
+   ========================================================= */
+
+/* The blue-bordered icon next to the page title */
+.analytics-icon-box {
+    -fx-background-color: #10294f;
+    -fx-background-radius: 10;
+    -fx-border-color: #2563eb;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 12;
+}
+
+/* Square icon tiles on the four summary cards */
+.icon-tile {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-padding: 11;
+    -fx-min-width: 50;
+    -fx-min-height: 50;
+    -fx-max-width: 50;
+    -fx-max-height: 50;
+}
+
+/* Round icons on the KPI rows */
+.kpi-circle {
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-width: 1;
+    -fx-padding: 11;
+    -fx-min-width: 48;
+    -fx-min-height: 48;
+    -fx-max-width: 48;
+    -fx-max-height: 48;
+}
+
+/* The tint colours the tiles and circles share */
+.tile-green  { -fx-background-color: #0f3d2e; -fx-border-color: #166534; }
+.tile-orange { -fx-background-color: #3b2a0c; -fx-border-color: #b45309; }
+.tile-blue   { -fx-background-color: #10294f; -fx-border-color: #1d4ed8; }
+.tile-purple { -fx-background-color: #2a1f5d; -fx-border-color: #6d28d9; }
+
+/* One KPI row */
+.kpi-row {
+    -fx-background-color: #0d1a30;
+    -fx-background-radius: 10;
+    -fx-border-color: #1f3358;
+    -fx-border-radius: 10;
+    -fx-padding: 10 12;
+}
+.kpi-value { -fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white; }
+
+/* A figure that cannot be worked out: smaller and grey, so it never looks like a real number */
+.stat-value.value-unavailable { -fx-font-size: 20px; -fx-text-fill: #9fb0cc; }
+.kpi-value.value-unavailable  { -fx-font-size: 16px; -fx-text-fill: #9fb0cc; }
+
+/* The "vs. previous period" line */
+.change-good { -fx-text-fill: #22c55e; -fx-font-weight: bold; }
+.change-bad  { -fx-text-fill: #f87171; -fx-font-weight: bold; }
+.change-none { -fx-text-fill: #7f93b5; }
+
+/* A month that lost money */
+.table-row-cell .table-cell.loss-cell { -fx-text-fill: #f87171; }
+
+/* Small outlined button, e.g. "Set capital" */
+.small-outline {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 6;
+    -fx-border-color: #3a5588;
+    -fx-border-radius: 6;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-padding: 3 8;
+}
+.small-outline:hover { -fx-background-color: #16294b; }
+
+/* =========================================================
+   Step 4 (Analytics): chart colours on the dark theme.
+   ========================================================= */
+
+/* Make every chart see-through, so the card colour shows */
+.chart-content { -fx-padding: 4; }
+.chart-plot-background { -fx-background-color: transparent; }
+.chart-title { -fx-text-fill: white; }
+.axis { -fx-tick-label-fill: #9fb0cc; }
+.axis-tick-mark, .axis-minor-tick-mark { -fx-stroke: #3a5588; }
+.chart-vertical-grid-lines { -fx-stroke: transparent; }
+.chart-horizontal-grid-lines { -fx-stroke: #1f3358; }
+.chart-vertical-zero-line, .chart-horizontal-zero-line { -fx-stroke: #3a5588; }
+.chart-legend { -fx-background-color: transparent; -fx-padding: 4; }
+.chart-legend-item { -fx-text-fill: #cbd5e8; }
+
+/* Revenue vs Expenses: orange and blue lines with matching dots and legend */
+.line-money .default-color0.chart-series-line { -fx-stroke: #f59e0b; -fx-stroke-width: 3; }
+.line-money .default-color1.chart-series-line { -fx-stroke: #3b82f6; -fx-stroke-width: 3; }
+.line-money .default-color0.chart-line-symbol { -fx-background-color: #f59e0b, #101e36; }
+.line-money .default-color1.chart-line-symbol { -fx-background-color: #3b82f6, #101e36; }
+.line-money .default-color0.chart-legend-item-symbol { -fx-background-color: #f59e0b; }
+.line-money .default-color1.chart-legend-item-symbol { -fx-background-color: #3b82f6; }
+
+/* Monthly Net Profit: orange bars (a losing month is painted red by the code) */
+.profit-bars .default-color0.chart-bar { -fx-bar-fill: #f59e0b; }
+
+/* Revenue Breakdown: orange room slice, blue extras slice, and the hole in the middle */
+.doughnut .default-color0.chart-pie { -fx-pie-color: #f59e0b; -fx-border-color: #101e36; }
+.doughnut .default-color1.chart-pie { -fx-pie-color: #3b82f6; -fx-border-color: #101e36; }
+.doughnut-hole { -fx-fill: #101e36; }
+.dot-orange { -fx-fill: #f59e0b; }
+.dot-blue   { -fx-fill: #3b82f6; }
+.kpi-value-small { -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: white; }
